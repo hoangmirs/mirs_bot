@@ -22,5 +22,5 @@ render(
     <Root bot={urbanBotTelegram} port={PORT ? Number(PORT) : undefined}>
         <App />
     </Root>,
-    () => console.log('telegram bot has started'),
+    () => console.log('telegram bot has started at PORT:', PORT),
 );
