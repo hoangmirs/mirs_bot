@@ -1,5 +1,11 @@
 import { useState } from 'react';
 import { Route, Router, Text, useText } from '@urban-bot/core';
+import { chatGPT } from './services/chatgpt';
+
+type ChatGPTResponse = {
+    id: string;
+    text: string;
+};
 
 function Echo() {
     const [text, setText] = useState('Say something');
@@ -16,10 +22,15 @@ function Echo() {
 }
 
 function ChatGPT() {
-    const [text, setText] = useState('ChatGPT Bot');
+    const [text, setText] = useState('ChatGPT enabled');
+    const [response, setResponse] = useState<ChatGPTResponse>();
 
-    useText(({ text }) => {
-        setText(text);
+    useText(async ({ text }) => {
+        const newResponse = await chatGPT(text, {
+            parentMessageId: response?.id,
+        });
+        setResponse(newResponse);
+        setText(newResponse.text);
     });
 
     return (
