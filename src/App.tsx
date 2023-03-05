@@ -33,11 +33,7 @@ function ChatGPT() {
         setText(newResponse.text);
     });
 
-    return (
-        <Text>
-            <i>{text}</i>
-        </Text>
-    );
+    return <Text>{text}</Text>;
 }
 
 export function App() {

@@ -5,10 +5,10 @@ on:
     - cron: "*/14 * * * *"
 
 jobs:
-  build:
+  check:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: mikeesto/heroku-awake@1.0.0
+      - uses: jtalk/url-health-check-action@v3
         with:
-          URL: ${{ secrets.WEBHOOK_HOST }}
+          url: ${{ secrets.WEBHOOK_HOST }}
