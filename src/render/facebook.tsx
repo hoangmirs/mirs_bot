@@ -5,7 +5,15 @@ import { App } from '../App';
 
 dotenv.config();
 
-const { FACEBOOK_APP_SECRET, FACEBOOK_PAGE_ACCESS_TOKEN, FACEBOOK_VERIFY_TOKEN, PORT } = process.env;
+const {
+    FACEBOOK_APP_ID,
+    FACEBOOK_APP_SECRET,
+    FACEBOOK_PAGE_ID,
+    FACEBOOK_PAGE_ACCESS_TOKEN,
+    FACEBOOK_VERIFY_TOKEN,
+    WEBHOOK_HOST,
+    PORT,
+} = process.env;
 
 if (!FACEBOOK_APP_SECRET) {
     throw new Error(
@@ -29,6 +37,9 @@ const urbanBotFacebook = new UrbanBotFacebook({
     appSecret: FACEBOOK_APP_SECRET,
     pageAccessToken: FACEBOOK_PAGE_ACCESS_TOKEN,
     verifyToken: FACEBOOK_VERIFY_TOKEN,
+    appId: FACEBOOK_APP_ID,
+    pageId: FACEBOOK_PAGE_ID,
+    webhookUrl: `${WEBHOOK_HOST}/facebook/webhook`,
 });
 
 render(
