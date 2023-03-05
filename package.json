@@ -4,7 +4,7 @@
   "description": "Mirs's bot",
   "main": "index.js",
   "dependencies": {
-    "botpress": "1.x",
+    "botpress": "10.x",
     "botpress-messenger": "^2.2.9",
     "botpress-web": "1.x"
   },
