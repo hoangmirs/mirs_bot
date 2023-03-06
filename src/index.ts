@@ -2,4 +2,4 @@
 import './render/telegram';
 // import './render/discord';
 import './render/facebook';
-// import './render/slack';
+import './render/slack';
