@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: jtalk/url-health-check-action@v3
+      - uses: fjogeleit/http-request-action@v1
         with:
           url: ${{ secrets.WEBHOOK_HOST }}
+          method: POST

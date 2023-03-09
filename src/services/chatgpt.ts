@@ -1,10 +1,10 @@
-import { importDynamic } from "../helpers/module";
+import { importDynamic } from '../helpers/module';
 
-var ChatGPT: any;
+let ChatGPT: any;
 
 const getChatGPT = async () => {
     if (!ChatGPT) {
-        const { ChatGPTAPI } = await importDynamic("chatgpt");
+        const { ChatGPTAPI } = await importDynamic('chatgpt');
         ChatGPT = new ChatGPTAPI({
             apiKey: process.env.OPENAI_API_KEY,
         });
